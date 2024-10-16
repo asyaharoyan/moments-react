@@ -34,7 +34,7 @@ function CommentEditForm(props) {
       }));
       setShowEditForm(false);
     } catch (err) {
-      console.log("Error updating comment:", err.response ? err.response.data : err.message);
+      console.log(err);
     }
   };
 

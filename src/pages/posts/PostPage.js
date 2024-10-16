@@ -18,7 +18,6 @@ import Asset from "../../components/Asset";
 import { fetchMoreData } from "../../utils/utils";
 import PopularProfiles from "../profiles/PopularProfiles";
 
-
 function PostPage() {
   const { id } = useParams();
   const [post, setPost] = useState({ results: [] });
@@ -62,22 +61,20 @@ function PostPage() {
             "Comments"
           ) : null}
           {comments.results.length ? (
-            <InfiniteScroll 
-            dataLength={comments.results.length}
-            loader={<Asset spinne />}
-            hasMore={!!comments.next}
-            next={() => fetchMoreData(comments, setComments)}
-            children={
-              comments.results.map((comment) => (
+            <InfiniteScroll
+              children={comments.results.map((comment) => (
                 <Comment
                   key={comment.id}
                   {...comment}
                   setPost={setPost}
                   setComments={setComments}
                 />
-              ))
-            }/>
-            
+              ))}
+              dataLength={comments.results.length}
+              loader={<Asset spinner />}
+              hasMore={!!comments.next}
+              next={() => fetchMoreData(comments, setComments)}
+            />
           ) : currentUser ? (
             <span>No comments yet, be the first to comment!</span>
           ) : (

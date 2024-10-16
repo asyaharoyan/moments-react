@@ -1,7 +1,7 @@
 import React from "react";
-import { useHistory } from "react-router";
 import Dropdown from "react-bootstrap/Dropdown";
 import styles from "../styles/MoreDropdown.module.css";
+import { useHistory } from "react-router";
 
 // The forwardRef is important!!
 // Dropdown needs access to the DOM node in order to position the Menu
@@ -44,7 +44,7 @@ export const MoreDropdown = ({ handleEdit, handleDelete }) => {
   );
 };
 
-export function ProfileEditDropdown({ id }) {
+export const ProfileEditDropdown = ({ id }) => {
   const history = useHistory();
   return (
     <Dropdown className={`ml-auto px-3 ${styles.Absolute}`} drop="left">
@@ -73,4 +73,4 @@ export function ProfileEditDropdown({ id }) {
       </Dropdown.Menu>
     </Dropdown>
   );
-}
+};
