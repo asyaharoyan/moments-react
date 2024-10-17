@@ -18,6 +18,7 @@ import Asset from "../../components/Asset";
 import { fetchMoreData } from "../../utils/utils";
 import PopularProfiles from "../profiles/PopularProfiles";
 
+
 function PostPage() {
   const { id } = useParams();
   const [post, setPost] = useState({ results: [] });
@@ -41,7 +42,7 @@ function PostPage() {
     };
 
     handleMount();
-  }, [id]);
+  }, [filter, query, pathname, currentUser]);
 
   return (
     <Row className="h-100">
