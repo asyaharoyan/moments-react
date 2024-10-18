@@ -40,10 +40,10 @@ export const CurrentUserProvider = ({ children }) => {
               }
               return null;
             });
+            removeTokenTimestamp();
             return config;
           }
         }
-        removeTokenTimestamp();
         return config;
       },
       (err) => {
